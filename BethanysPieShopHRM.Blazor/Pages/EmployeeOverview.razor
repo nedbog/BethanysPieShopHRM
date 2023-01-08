@@ -8,7 +8,15 @@
 }
 else
 {
-    <table class="table table-light">
+    <div class="row">
+        @foreach (var employee in Employees)
+        {
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                <EmployeeCard Employee="employee"></EmployeeCard>
+            </div>
+        }
+    </div>
+    @*<table class="table table-light">
         <thead class="table-primary">
             <tr>
                 <th></th>
@@ -32,6 +40,6 @@ else
             }
         </tbody>
 
-    </table>
+    </table>*@
 }
 
