@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BethanysPieShopHRM.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220722203426_InitialMigration")]
+    [Migration("20230203205141_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace BethanysPieShopHRM.Api.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("BethanysPieShopHRM.Shared.Country", b =>
+            modelBuilder.Entity("BethanysPieShopHRM.Shared.Domain.Country", b =>
                 {
                     b.Property<int>("CountryId")
                         .ValueGeneratedOnAdd()
@@ -88,7 +88,7 @@ namespace BethanysPieShopHRM.Api.Migrations
                         });
                 });
 
-            modelBuilder.Entity("BethanysPieShopHRM.Shared.Employee", b =>
+            modelBuilder.Entity("BethanysPieShopHRM.Shared.Domain.Employee", b =>
                 {
                     b.Property<int>("EmployeeId")
                         .ValueGeneratedOnAdd()
@@ -189,7 +189,7 @@ namespace BethanysPieShopHRM.Api.Migrations
                         });
                 });
 
-            modelBuilder.Entity("BethanysPieShopHRM.Shared.JobCategory", b =>
+            modelBuilder.Entity("BethanysPieShopHRM.Shared.Domain.JobCategory", b =>
                 {
                     b.Property<int>("JobCategoryId")
                         .ValueGeneratedOnAdd()
@@ -253,15 +253,15 @@ namespace BethanysPieShopHRM.Api.Migrations
                         });
                 });
 
-            modelBuilder.Entity("BethanysPieShopHRM.Shared.Employee", b =>
+            modelBuilder.Entity("BethanysPieShopHRM.Shared.Domain.Employee", b =>
                 {
-                    b.HasOne("BethanysPieShopHRM.Shared.Country", "Country")
+                    b.HasOne("BethanysPieShopHRM.Shared.Domain.Country", "Country")
                         .WithMany()
                         .HasForeignKey("CountryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BethanysPieShopHRM.Shared.JobCategory", "JobCategory")
+                    b.HasOne("BethanysPieShopHRM.Shared.Domain.JobCategory", "JobCategory")
                         .WithMany()
                         .HasForeignKey("JobCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
