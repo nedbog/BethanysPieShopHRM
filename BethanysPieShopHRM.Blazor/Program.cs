@@ -1,5 +1,6 @@
 using BethanysPieShopHRM.Blazor;
 using BethanysPieShopHRM.Blazor.Services;
+using BethanysPieShopHRM.Blazor.State;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
@@ -9,5 +10,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddHttpClient<IEmployeeDataService, EmployeeDataService>(client =>
     client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress));
+
+builder.Services.AddScoped<ApplicationState>();
 
 await builder.Build().RunAsync();
